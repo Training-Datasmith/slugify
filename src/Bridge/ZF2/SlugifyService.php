@@ -15,15 +15,13 @@ class SlugifyService
 {
     /**
      * @param ServiceManager $sm
-     *
-     * @return Slugify
      */
     public function __invoke($sm): Slugify
     {
         $config = $sm->get('Config');
 
-        $options  = isset($config[Module::CONFIG_KEY]['options']) ? $config[Module::CONFIG_KEY]['options'] : [];
-        $provider = isset($config[Module::CONFIG_KEY]['provider']) ? $config[Module::CONFIG_KEY]['provider'] : null;
+        $options  = $config[Module::CONFIG_KEY]['options'] ?? [];
+        $provider = $config[Module::CONFIG_KEY]['provider'] ?? null;
 
         return new Slugify($options, $provider);
     }

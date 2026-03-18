@@ -27,20 +27,13 @@ use Twig\TwigFilter;
 class SlugifyExtension extends AbstractExtension
 {
     /**
-     * @var SlugifyInterface
-     */
-    private $slugify;
-
-    /**
      * Constructor.
      *
-     * @param SlugifyInterface $slugify
      *
      * @codeCoverageIgnore
      */
-    public function __construct(SlugifyInterface $slugify)
+    public function __construct(private SlugifyInterface $slugify)
     {
-        $this->slugify = $slugify;
     }
 
     /**
@@ -60,8 +53,6 @@ class SlugifyExtension extends AbstractExtension
      *
      * @param string      $string
      * @param string|null $separator
-     *
-     * @return string
      */
     public function slugifyFilter($string, $separator = null): string
     {
@@ -70,8 +61,6 @@ class SlugifyExtension extends AbstractExtension
 
     /**
      * get Name
-     *
-     * @return string
      */
     public function getName(): string
     {

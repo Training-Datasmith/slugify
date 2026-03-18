@@ -25,10 +25,10 @@ class Module implements ServiceProviderInterface, ViewHelperProviderInterface
     {
         return [
             'factories' => [
-                'Cocur\Slugify\Slugify' => 'Cocur\Slugify\Bridge\ZF2\SlugifyService'
+                \Cocur\Slugify\Slugify::class => \Cocur\Slugify\Bridge\ZF2\SlugifyService::class
             ],
             'aliases' => [
-                'slugify' => 'Cocur\Slugify\Slugify'
+                'slugify' => \Cocur\Slugify\Slugify::class
             ]
         ];
     }
@@ -43,7 +43,7 @@ class Module implements ServiceProviderInterface, ViewHelperProviderInterface
     {
         return [
             'factories' => [
-                'slugify' => 'Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory'
+                'slugify' => \Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory::class
             ]
         ];
     }

@@ -14,24 +14,14 @@ use Zend\View\Helper\AbstractHelper;
 class SlugifyViewHelper extends AbstractHelper
 {
     /**
-     * @var SlugifyInterface
-     */
-    protected $slugify;
-
-    /**
-     * @param SlugifyInterface $slugify
-     *
      * @codeCoverageIgnore
      */
-    public function __construct(SlugifyInterface $slugify)
+    public function __construct(protected \Cocur\Slugify\SlugifyInterface $slugify)
     {
-        $this->slugify = $slugify;
     }
 
     /**
-     * @param string      $string
      * @param string|null $separator
-     *
      * @return string
      */
     public function __invoke(string $string, string $separator = null)

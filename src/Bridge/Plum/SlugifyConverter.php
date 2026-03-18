@@ -24,8 +24,7 @@ use Cocur\Slugify\SlugifyInterface;
  */
 class SlugifyConverter implements ConverterInterface
 {
-    /** @var Slugify */
-    private $slugify;
+    private ?\Cocur\Slugify\SlugifyInterface $slugify;
 
     /**
      * @param SlugifyInterface|null $slugify
@@ -38,12 +37,7 @@ class SlugifyConverter implements ConverterInterface
         $this->slugify = $slugify;
     }
 
-    /**
-     * @param string $item
-     *
-     * @return string
-     */
-    public function convert($item): string
+    public function convert(string $item): string
     {
         return $this->slugify->slugify($item);
     }

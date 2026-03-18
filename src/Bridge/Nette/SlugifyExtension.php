@@ -20,11 +20,11 @@ class SlugifyExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $builder->addDefinition($this->prefix('slugify'))
-            ->setClass('Cocur\Slugify\SlugifyInterface')
-            ->setFactory('Cocur\Slugify\Slugify');
+            ->setClass(\Cocur\Slugify\SlugifyInterface::class)
+            ->setFactory(\Cocur\Slugify\Slugify::class);
 
         $builder->addDefinition($this->prefix('helper'))
-            ->setClass('Cocur\Slugify\Bridge\Latte\SlugifyHelper')
+            ->setClass(\Cocur\Slugify\Bridge\Latte\SlugifyHelper::class)
             ->setAutowired(false);
     }
 
@@ -33,7 +33,7 @@ class SlugifyExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $self = $this;
-        $registerToLatte = function (ServiceDefinition $def) use ($self) {
+        $registerToLatte = function (ServiceDefinition $def) use ($self): void {
             $def->addSetup('addFilter', ['slugify', [$self->prefix('@helper'), 'slugify']]);
         };
 

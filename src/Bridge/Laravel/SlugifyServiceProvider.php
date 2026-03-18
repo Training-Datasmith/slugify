@@ -35,14 +35,10 @@ class SlugifyServiceProvider extends LaravelServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register(): void
     {
-        $this->app->singleton('slugify', function () {
-            return new Slugify();
-        });
+        $this->app->singleton('slugify', fn() => new Slugify());
     }
 
     /**

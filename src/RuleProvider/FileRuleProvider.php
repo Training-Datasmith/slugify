@@ -20,24 +20,10 @@ namespace Cocur\Slugify\RuleProvider;
  */
 class FileRuleProvider implements RuleProviderInterface
 {
-    /**
-     * @var string
-     */
-    protected string $directoryName;
-
-    /**
-     * @param string $directoryName
-     */
-    public function __construct(string $directoryName)
+    public function __construct(protected string $directoryName)
     {
-        $this->directoryName = $directoryName;
     }
 
-    /**
-     * @param string $ruleset
-     *
-     * @return array
-     */
     public function getRules(string $ruleset): array
     {
         $fileName = $this->directoryName . DIRECTORY_SEPARATOR . $ruleset . '.json';

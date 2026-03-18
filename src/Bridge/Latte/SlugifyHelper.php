@@ -14,24 +14,18 @@ use Cocur\Slugify\SlugifyInterface;
  */
 class SlugifyHelper
 {
-    /** @var SlugifyInterface */
-    private $slugify;
-
     /**
      * @codeCoverageIgnore
      */
-    public function __construct(SlugifyInterface $slugify)
+    public function __construct(private SlugifyInterface $slugify)
     {
-        $this->slugify = $slugify;
     }
 
     /**
-     * @param string      $string
      * @param string|null $separator
      *
-     * @return string
      */
-    public function slugify($string, $separator = null): string
+    public function slugify(string $string, array|string|null $separator = null): string
     {
         return $this->slugify->slugify($string, $separator);
     }

@@ -33,9 +33,6 @@ class Slugify implements SlugifyInterface
      */
     protected array $rules = [];
 
-    /**
-     * @var RuleProviderInterface
-     */
     protected RuleProviderInterface $provider;
 
     /**
@@ -77,13 +74,12 @@ class Slugify implements SlugifyInterface
     ];
 
     /**
-     * @param array                 $options
      * @param RuleProviderInterface $provider
      */
     public function __construct(array $options = [], ?RuleProviderInterface $provider = null)
     {
         $this->options  = array_merge($this->options, $options);
-        $this->provider = $provider ? $provider : new DefaultRuleProvider();
+        $this->provider = $provider ?: new DefaultRuleProvider();
 
         foreach ($this->options['rulesets'] as $ruleSet) {
             $this->activateRuleSet($ruleSet);
@@ -143,10 +139,8 @@ class Slugify implements SlugifyInterface
      *
      * @param string $character   Character
      * @param string $replacement Replacement character
-     *
-     * @return Slugify
      */
-    public function addRule($character, $replacement): self
+    public function addRule(string $character, $replacement): self
     {
         $this->rules[$character] = $replacement;
 
@@ -157,8 +151,6 @@ class Slugify implements SlugifyInterface
      * Adds multiple rules to Slugify.
      *
      * @param array <string,string> $rules
-     *
-     * @return Slugify
      */
     public function addRules(array $rules): self
     {
@@ -169,12 +161,7 @@ class Slugify implements SlugifyInterface
         return $this;
     }
 
-    /**
-     * @param string $ruleSet
-     *
-     * @return Slugify
-     */
-    public function activateRuleSet($ruleSet): self
+    public function activateRuleSet(string $ruleSet): self
     {
         return $this->addRules($this->provider->getRules($ruleSet));
     }
@@ -183,8 +170,6 @@ class Slugify implements SlugifyInterface
      * Static method to create new instance of {@see Slugify}.
      *
      * @param array <string,mixed> $options
-     *
-     * @return Slugify
      */
     public static function create(array $options = []): self
     {

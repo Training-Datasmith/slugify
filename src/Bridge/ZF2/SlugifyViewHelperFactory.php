@@ -15,10 +15,8 @@ class SlugifyViewHelperFactory
 {
     /**
      * @param HelperPluginManager $vhm
-     *
-     * @return SlugifyViewHelper
      */
-    public function __invoke($vhm)
+    public function __invoke($vhm): \Cocur\Slugify\Bridge\ZF2\SlugifyViewHelper
     {
         /** @var Slugify $slugify */
         $slugify = $vhm->getServiceLocator()->get(Slugify::class);
