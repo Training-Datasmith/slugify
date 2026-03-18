@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of cocur/slugify.
  *
@@ -12,8 +14,8 @@
 namespace Cocur\Slugify\Tests\RuleProvider;
 
 use Cocur\Slugify\RuleProvider\FileRuleProvider;
-use org\bovigo\vfs\vfsStream;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use org\bovigo\vfs\vfsStream;
 
 /**
  * FileRuleProviderTest

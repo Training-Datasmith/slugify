@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of cocur/slugify.
  *
@@ -11,9 +13,9 @@
 
 namespace Cocur\Slugify\Bridge\Plum;
 
-use Plum\Plum\Converter\ConverterInterface;
 use Cocur\Slugify\Slugify;
 use Cocur\Slugify\SlugifyInterface;
+use Plum\Plum\Converter\ConverterInterface;
 
 /**
  * SlugifyConverter

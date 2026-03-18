@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of cocur/slugify.
  *
@@ -64,6 +66,6 @@ class SlugifyExtension extends AbstractExtension
      */
     public function getName(): string
     {
-        return "SlugifyExtension";
+        return 'SlugifyExtension';
     }
 }

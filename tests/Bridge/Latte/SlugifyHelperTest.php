@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\Latte;
 
 use Cocur\Slugify\Bridge\Latte\SlugifyHelper;
-use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Mockery as m;
 
 /**
  * SlugifyHelperTest

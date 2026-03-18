@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Bridge\Latte;
 
 use Cocur\Slugify\SlugifyInterface;

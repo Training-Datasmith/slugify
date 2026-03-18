@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the cocur/slugify package.
  *
@@ -12,9 +14,9 @@
 namespace Cocur\Slugify\Tests\Bridge\Symfony;
 
 use Cocur\Slugify\Bridge\Symfony\Configuration;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use Symfony\Component\Config\Definition\Processor;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 class ConfigurationTest extends MockeryTestCase
 {
@@ -27,7 +29,7 @@ class ConfigurationTest extends MockeryTestCase
                 'strip_tags' => false,
                 'separator' => '_',
                 'regexp' => 'abcd',
-                'rulesets' => ['burmese', 'hindi']
+                'rulesets' => ['burmese', 'hindi'],
             ],
         ];
 

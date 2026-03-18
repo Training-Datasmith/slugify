@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Bridge\Nette;
 
 use Nette\DI\CompilerExtension;

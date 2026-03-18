@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Bridge\ZF2;
 
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
@@ -13,7 +15,7 @@ use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
  */
 class Module implements ServiceProviderInterface, ViewHelperProviderInterface
 {
-    const CONFIG_KEY = 'cocur_slugify';
+    public const CONFIG_KEY = 'cocur_slugify';
 
     /**
      * Expected to return \Zend\ServiceManager\Config object or array to
@@ -25,11 +27,11 @@ class Module implements ServiceProviderInterface, ViewHelperProviderInterface
     {
         return [
             'factories' => [
-                \Cocur\Slugify\Slugify::class => \Cocur\Slugify\Bridge\ZF2\SlugifyService::class
+                \Cocur\Slugify\Slugify::class => \Cocur\Slugify\Bridge\ZF2\SlugifyService::class,
             ],
             'aliases' => [
-                'slugify' => \Cocur\Slugify\Slugify::class
-            ]
+                'slugify' => \Cocur\Slugify\Slugify::class,
+            ],
         ];
     }
 
@@ -43,8 +45,8 @@ class Module implements ServiceProviderInterface, ViewHelperProviderInterface
     {
         return [
             'factories' => [
-                'slugify' => \Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory::class
-            ]
+                'slugify' => \Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory::class,
+            ],
         ];
     }
 }

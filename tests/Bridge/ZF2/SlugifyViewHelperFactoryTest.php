@@ -1,11 +1,14 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\ZF2;
 
 use Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory;
 use Cocur\Slugify\Slugify;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Zend\ServiceManager\ServiceManager;
 use Zend\View\HelperPluginManager;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
  * Class SlugifyViewHelperFactoryTest

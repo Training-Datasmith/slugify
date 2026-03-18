@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of cocur/slugify.
  *
@@ -69,7 +71,7 @@ class Slugify implements SlugifyInterface
             'polish',
             'german',
             'russian',
-            'romanian'
+            'romanian',
         ],
     ];
 

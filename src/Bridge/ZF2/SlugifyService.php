@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Bridge\ZF2;
 
 use Cocur\Slugify\Slugify;

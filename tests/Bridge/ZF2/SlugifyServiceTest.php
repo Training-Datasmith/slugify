@@ -1,10 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\ZF2;
 
 use Cocur\Slugify\Bridge\ZF2\Module;
 use Cocur\Slugify\Bridge\ZF2\SlugifyService;
-use Zend\ServiceManager\ServiceManager;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Zend\ServiceManager\ServiceManager;
 
 /**
  * Class SlugifyServiceTest
@@ -46,8 +49,8 @@ class SlugifyServiceTest extends MockeryTestCase
     {
         $sm = $this->createServiceManagerMock([
             Module::CONFIG_KEY => [
-                'options' => ['regexp' => '/([^a-z0-9.]|-)+/']
-            ]
+                'options' => ['regexp' => '/([^a-z0-9.]|-)+/'],
+            ],
         ]);
         $slugify = call_user_func($this->slugifyService, $sm);
         $this->assertInstanceOf('Cocur\Slugify\Slugify', $slugify);

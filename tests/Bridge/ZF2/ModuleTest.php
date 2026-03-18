@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\ZF2;
 
 use Cocur\Slugify\Bridge\ZF2\Module;

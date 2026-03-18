@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\League;
 
 use Cocur\Slugify\Bridge\League\SlugifyServiceProvider;
@@ -7,8 +9,8 @@ use Cocur\Slugify\RuleProvider\DefaultRuleProvider;
 use Cocur\Slugify\RuleProvider\RuleProviderInterface;
 use Cocur\Slugify\SlugifyInterface;
 use League\Container\Container;
-use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Mockery as m;
 
 class SlugifyServiceProviderTest extends MockeryTestCase
 {

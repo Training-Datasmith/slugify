@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Bridge\League;
 
-use Cocur\Slugify\RuleProvider\DefaultRuleProvider;
 use Cocur\Slugify\RuleProvider\RuleProviderInterface;
 use Cocur\Slugify\Slugify;
 use Cocur\Slugify\SlugifyInterface;

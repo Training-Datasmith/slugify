@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cocur\Slugify\Tests\Bridge\Nette;
 
 use Cocur\Slugify\Bridge\Nette\SlugifyExtension;
-use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Mockery as m;
 
 /**
  * SlugifyExtensionTest
