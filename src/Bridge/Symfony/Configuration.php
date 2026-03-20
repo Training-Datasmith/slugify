@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /*
  * This file is part of the cocur/slugify package.
  *
@@ -10,39 +9,25 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify\Bridge\Symfony;
 
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
-
-class Configuration implements ConfigurationInterface
+use Symfony\Component\Config\Definition\Builder\Tree_Builder;
+use Symfony\Component\Config\Definition\Configuration_Interface;
+class Configuration implements Configuration_Interface
 {
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder(): TreeBuilder
+    public function get_config_tree_builder(): Tree_Builder
     {
-        $treeBuilder = new TreeBuilder('cocur_slugify');
-
+        $tree_builder = new Tree_Builder('cocur_slugify');
         // Keep compatibility with symfony/config < 4.2
-        if (\method_exists($treeBuilder, 'getRootNode')) {
-            $rootNode = $treeBuilder->getRootNode();
+        if (\method_exists($tree_builder, 'getRootNode')) {
+            $root_node = $tree_builder->get_root_node();
         } else {
-            $rootNode = $treeBuilder->root('cocur_slugify');
+            $root_node = $tree_builder->root('cocur_slugify');
         }
-
-        $rootNode
-            ->children()
-                ->booleanNode('lowercase')->end()
-                ->booleanNode('lowercase_after_regexp')->end()
-                ->booleanNode('trim')->end()
-                ->booleanNode('strip_tags')->end()
-                ->scalarNode('separator')->end()
-                ->scalarNode('regexp')->end()
-                ->arrayNode('rulesets')->prototype('scalar')->end()
-            ->end();
-
-        return $treeBuilder;
+        $root_node->children()->boolean_node('lowercase')->end()->boolean_node('lowercase_after_regexp')->end()->boolean_node('trim')->end()->boolean_node('strip_tags')->end()->scalar_node('separator')->end()->scalar_node('regexp')->end()->array_node('rulesets')->prototype('scalar')->end()->end();
+        return $tree_builder;
     }
 }

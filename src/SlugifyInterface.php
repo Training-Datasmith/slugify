@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of cocur/slugify.
  *
@@ -10,7 +9,6 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify;
 
 /**
@@ -22,7 +20,7 @@ namespace Cocur\Slugify;
  * @copyright 2012-2014 Florian Eckerstorfer
  * @license   http://www.opensource.org/licenses/MIT The MIT License
  */
-interface SlugifyInterface
+interface Slugify_Interface
 {
     /**
      * Return a URL safe version of a string.

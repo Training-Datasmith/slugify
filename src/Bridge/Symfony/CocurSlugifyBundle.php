@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of cocur/slugify.
  *
@@ -10,12 +9,10 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify\Bridge\Symfony;
 
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
+use Symfony\Component\Dependency_Injection\Extension\Extension_Interface;
+use Symfony\Component\Http_Kernel\Bundle\Bundle;
 /**
  * CocurSlugifyBundle
  *
@@ -25,10 +22,10 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * @copyright  2012-2014 Florian Eckerstorfer
  * @license    http://www.opensource.org/licenses/MIT The MIT License
  */
-class CocurSlugifyBundle extends Bundle
+class Cocur_Slugify_Bundle extends Bundle
 {
-    public function getContainerExtension(): ExtensionInterface
+    public function get_container_extension(): Extension_Interface
     {
-        return new CocurSlugifyExtension();
+        return new Cocur_Slugify_Extension();
     }
 }

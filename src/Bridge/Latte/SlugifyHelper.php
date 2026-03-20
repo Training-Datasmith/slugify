@@ -1,11 +1,9 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Cocur\Slugify\Bridge\Latte;
 
-use Cocur\Slugify\SlugifyInterface;
-
+use Cocur\Slugify\Slugify_Interface;
 /**
  * SlugifyHelper
  *
@@ -14,15 +12,14 @@ use Cocur\Slugify\SlugifyInterface;
  * @author     Lukáš Unger <looky.msc@gmail.com>
  * @license    http://www.opensource.org/licenses/MIT The MIT License
  */
-class SlugifyHelper
+class Slugify_Helper
 {
     /**
      * @codeCoverageIgnore
      */
-    public function __construct(private SlugifyInterface $slugify)
+    public function __construct(private Slugify_Interface $slugify)
     {
     }
-
     /**
      * @param string|null $separator
      *

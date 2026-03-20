@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of cocur/slugify.
  *
@@ -10,17 +9,15 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify\Bridge\Symfony;
 
-use Cocur\Slugify\Bridge\Twig\SlugifyExtension;
+use Cocur\Slugify\Bridge\Twig\Slugify_Extension;
 use Cocur\Slugify\Slugify;
-use Cocur\Slugify\SlugifyInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Reference;
-
+use Cocur\Slugify\Slugify_Interface;
+use Symfony\Component\Dependency_Injection\Container_Builder;
+use Symfony\Component\Dependency_Injection\Definition;
+use Symfony\Component\Dependency_Injection\Extension\Extension;
+use Symfony\Component\Dependency_Injection\Reference;
 /**
  * CocurSlugifyExtension
  *
@@ -30,37 +27,25 @@ use Symfony\Component\DependencyInjection\Reference;
  * @copyright  2012-2014 Florian Eckerstorfer
  * @license    http://www.opensource.org/licenses/MIT The MIT License
  */
-class CocurSlugifyExtension extends Extension
+class Cocur_Slugify_Extension extends Extension
 {
     /**
      * {@inheritDoc}
      *
      * @param mixed[]          $configs
      */
-    public function load(array $configs, ContainerBuilder $container): void
+    public function load(array $configs, Container_Builder $container): void
     {
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
+        $config = $this->process_configuration($configuration, $configs);
         if (empty($config['rulesets'])) {
             unset($config['rulesets']);
         }
-
         // Extract slugify arguments from config
-        $slugifyArguments = array_intersect_key($config, array_flip(['lowercase', 'trim', 'strip_tags', 'separator', 'regexp', 'rulesets']));
-
-        $container->setDefinition('cocur_slugify', new Definition(Slugify::class, [$slugifyArguments]));
-        $container
-            ->setDefinition(
-                'cocur_slugify.twig.slugify',
-                new Definition(
-                    SlugifyExtension::class,
-                    [new Reference('cocur_slugify')]
-                )
-            )
-            ->addTag('twig.extension')
-            ->setPublic(false);
-        $container->setAlias('slugify', 'cocur_slugify');
-        $container->setAlias(SlugifyInterface::class, 'cocur_slugify');
+        $slugify_arguments = array_intersect_key($config, array_flip(['lowercase', 'trim', 'strip_tags', 'separator', 'regexp', 'rulesets']));
+        $container->set_definition('cocur_slugify', new Definition(Slugify::class, [$slugify_arguments]));
+        $container->set_definition('cocur_slugify.twig.slugify', new Definition(Slugify_Extension::class, [new Reference('cocur_slugify')]))->add_tag('twig.extension')->set_public(false);
+        $container->set_alias('slugify', 'cocur_slugify');
+        $container->set_alias(Slugify_Interface::class, 'cocur_slugify');
     }
 }

@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Cocur\Slugify\Bridge\Nette;
 
-use Nette\DI\CompilerExtension;
-use Nette\DI\ServiceDefinition;
-
+use Nette\DI\Compiler_Extension;
+use Nette\DI\Service_Definition;
 /**
  * SlugifyExtension
  *
@@ -15,37 +13,27 @@ use Nette\DI\ServiceDefinition;
  * @author     Lukáš Unger <looky.msc@gmail.com>
  * @license    http://www.opensource.org/licenses/MIT The MIT License
  */
-class SlugifyExtension extends CompilerExtension
+class Slugify_Extension extends Compiler_Extension
 {
-    public function loadConfiguration(): void
+    public function load_configuration(): void
     {
-        $builder = $this->getContainerBuilder();
-
-        $builder->addDefinition($this->prefix('slugify'))
-            ->setClass(\Cocur\Slugify\SlugifyInterface::class)
-            ->setFactory(\Cocur\Slugify\Slugify::class);
-
-        $builder->addDefinition($this->prefix('helper'))
-            ->setClass(\Cocur\Slugify\Bridge\Latte\SlugifyHelper::class)
-            ->setAutowired(false);
+        $builder = $this->get_container_builder();
+        $builder->add_definition($this->prefix('slugify'))->set_class(\Cocur\Slugify\Slugify_Interface::class)->set_factory(\Cocur\Slugify\Slugify::class);
+        $builder->add_definition($this->prefix('helper'))->set_class(\Cocur\Slugify\Bridge\Latte\Slugify_Helper::class)->set_autowired(false);
     }
-
-    public function beforeCompile(): void
+    public function before_compile(): void
     {
-        $builder = $this->getContainerBuilder();
-
+        $builder = $this->get_container_builder();
         $self = $this;
-        $registerToLatte = function (ServiceDefinition $def) use ($self): void {
-            $def->addSetup('addFilter', ['slugify', [$self->prefix('@helper'), 'slugify']]);
+        $register_to_latte = function (Service_Definition $def) use ($self): void {
+            $def->add_setup('addFilter', ['slugify', [$self->prefix('@helper'), 'slugify']]);
         };
-
-        $latteFactory = $builder->getByType('Nette\Bridges\ApplicationLatte\ILatteFactory') ?: 'nette.latteFactory';
-        if ($builder->hasDefinition($latteFactory)) {
-            $registerToLatte($builder->getDefinition($latteFactory));
+        $latte_factory = $builder->get_by_type('Nette\Bridges\ApplicationLatte\ILatteFactory') ?: 'nette.latteFactory';
+        if ($builder->has_definition($latte_factory)) {
+            $register_to_latte($builder->get_definition($latte_factory));
         }
-
-        if ($builder->hasDefinition('nette.latte')) {
-            $registerToLatte($builder->getDefinition('nette.latte'));
+        if ($builder->has_definition('nette.latte')) {
+            $register_to_latte($builder->get_definition('nette.latte'));
         }
     }
 }

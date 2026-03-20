@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of cocur/slugify.
  *
@@ -10,12 +9,10 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify\Bridge\Laravel;
 
 use Cocur\Slugify\Slugify;
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-
+use Illuminate\Support\Service_Provider as LaravelServiceProvider;
 /**
  * SlugifyServiceProvider
  *
@@ -26,7 +23,7 @@ use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
  * @copyright  2012-2014 Florian Eckerstorfer
  * @license    http://www.opensource.org/licenses/MIT The MIT License
  */
-class SlugifyServiceProvider extends LaravelServiceProvider
+class Slugify_Service_Provider extends Laravel_Service_Provider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -34,15 +31,13 @@ class SlugifyServiceProvider extends LaravelServiceProvider
      * @var bool
      */
     protected $defer = true;
-
     /**
      * Register the service provider.
      */
     public function register(): void
     {
-        $this->app->singleton('slugify', fn () => new Slugify());
+        $this->app->singleton('slugify', fn() => new Slugify());
     }
-
     /**
      * Get the services provided by the provider.
      *

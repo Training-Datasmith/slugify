@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of cocur/slugify.
  *
@@ -10,13 +9,11 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Cocur\Slugify\Bridge\Plum;
 
 use Cocur\Slugify\Slugify;
-use Cocur\Slugify\SlugifyInterface;
-use Plum\Plum\Converter\ConverterInterface;
-
+use Cocur\Slugify\Slugify_Interface;
+use Plum\Plum\Converter\Converter_Interface;
 /**
  * SlugifyConverter
  *
@@ -24,21 +21,19 @@ use Plum\Plum\Converter\ConverterInterface;
  * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
  * @copyright 2015 Florian Eckerstorfer
  */
-class SlugifyConverter implements ConverterInterface
+class Slugify_Converter implements Converter_Interface
 {
-    private ?\Cocur\Slugify\SlugifyInterface $slugify;
-
+    private ?\Cocur\Slugify\Slugify_Interface $slugify;
     /**
      * @param SlugifyInterface|null $slugify
      */
-    public function __construct(SlugifyInterface $slugify = null)
+    public function __construct(Slugify_Interface $slugify = null)
     {
         if ($slugify === null) {
             $slugify = new Slugify();
         }
         $this->slugify = $slugify;
     }
-
     public function convert(string $item): string
     {
         return $this->slugify->slugify($item);
